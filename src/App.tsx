@@ -1,24 +1,13 @@
-import React, {useEffect, useReducer, useRef} from 'react';
+import React, {useReducer, useRef} from 'react';
 import {Routes, Route} from "react-router-dom";
+import L from "leaflet";
 import {DrawingBar} from "./DrawingBar";
-import {Map} from './Map';
+import {Map} from "./Map";
 import {MarkerList} from "./MarkerList";
 import {Navigation} from "./Navigation";
 import {NoMatchPage} from "./NoMatchPage";
-import L from "leaflet";
-import './App.css';
-
-export type markerType = {
-    _leaflet_id: number;
-    name: string,
-    description: string
-    date: string
-}
-
-export type StateType = {
-    markers: markerType[],
-    map: null
-}
+import {markerType, StateType} from "./types";
+import "./App.css";
 
 export enum ACTION {
     ADD_MARKER = 'ADD_MARKER',
@@ -33,7 +22,7 @@ type ActionType = {
 
 export const INITIAL_STATE: StateType = {
     markers: [],
-    map: null
+    map: {}
 }
 
 export const StoreContext = React.createContext<{ state: StateType, dispatch: React.Dispatch<any> }>({
@@ -66,25 +55,22 @@ const reducer = (currentState: StateType, payLoad: ActionType): StateType => {
 }
 
 function App() {
-    const map = useRef<L.Map | null>();
-
-    useEffect(() => {}, []);
+    let map = useRef<L.Map | null | undefined>();
 
     const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
-    console.log('APP', state)
     return (
         <StoreContext.Provider value={{state, dispatch}}>
-            <div className="App" style={{position: 'relative'}}>
+            <div className="App">
                 <Routes>
                     <Route path='/' element={<Navigation/>}>
-                        <Route path='/map' element={<Map map={map}/>}/>
-                        <Route path='/drawing-bar' element={<DrawingBar map={map}/>}/>
-                        <Route path='/marker-list' element={<MarkerList map={map}/>}/>
+                        <Route path='/map' element={<Map map={map} />}/>
+                        <Route path='/drawing-bar' element={<DrawingBar />}/>
+                        <Route path='/marker-list' element={<MarkerList />}/>
                     </Route>
                     <Route path="*" element={<NoMatchPage/>}/>
                 </Routes>
-                <Map map={map}/>
+                <Map map={map} />
             </div>
         </StoreContext.Provider>
     );
