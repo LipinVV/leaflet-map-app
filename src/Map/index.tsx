@@ -29,7 +29,7 @@ export const Map = () => {
     }).addTo(map);
     dispatch({
         action: ACTION.MAP_LOAD,
-        data: {map: map}
+        data: {map: mapContainer.current}
     })
     return () => map.remove();
 }, []);
