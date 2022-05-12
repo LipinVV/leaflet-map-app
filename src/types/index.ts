@@ -13,7 +13,3 @@ export type StateType = {
     markers: markerType[],
     map: any
 }
-
-export type MapType = {
-    map: React.MutableRefObject<L.Map | null | undefined>
-}

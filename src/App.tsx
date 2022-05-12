@@ -1,6 +1,5 @@
-import React, {useEffect, useReducer, useRef} from 'react';
+import React, {useReducer} from 'react';
 import {Routes, Route} from "react-router-dom";
-import L from "leaflet";
 import {DrawingBar} from "./DrawingBar";
 import {Map} from "./Map";
 import {MarkerList} from "./MarkerList";
@@ -55,8 +54,6 @@ const reducer = (currentState: StateType, payLoad: ActionType): StateType => {
 }
 
 function App() {
-    // let map = useRef<L.Map | null | undefined>();
-
     const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
     return (

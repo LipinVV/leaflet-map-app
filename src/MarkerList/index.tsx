@@ -44,6 +44,3 @@ export const MarkerList = () => {
         </Paper>
     )
 }
-
-// { _leaflet_id: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }
-// (markers.filter((x: any) => x !== markerToDelete)) // { _leaflet_id: number; }
