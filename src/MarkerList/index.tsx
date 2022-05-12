@@ -7,7 +7,6 @@ export const MarkerList = ({map}: any) => {
 
     const deleteMarkerHandler = (id: number) => {
         const markerToDelete = state.markers.find((marker: markerType) => marker._leaflet_id === id);
-        console.log(markerToDelete)
         map.current.removeLayer(markerToDelete);
         dispatch({
             action: ACTION.REMOVE_MARKER,
@@ -18,7 +17,14 @@ export const MarkerList = ({map}: any) => {
     console.log('state', state)
 
     return (
-        <div>
+        <div style={{
+            width: '300px',
+            height: '300px',
+            backgroundColor: 'white',
+            zIndex: '22222',
+            top: '100px',
+            position: 'absolute'
+        }}>
             {state.markers?.map((marker: markerType) => {
                 return (
                     <div>

@@ -1,4 +1,4 @@
-import {JSXElementConstructor, ReactElement, ReactFragment, ReactPortal, useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import L from "leaflet";
 import {ACTION, StoreContext} from "../App";
 
@@ -7,29 +7,34 @@ import {ACTION, StoreContext} from "../App";
 // }
 
 export const DrawingBar = ({map}: any) => {
-    const {state, dispatch } = useContext(StoreContext);
-    const [markers, setMarkers] = useState<any>([]);
-
-    const markerHandler = () => {
-
-
+    type MarkerBody  = {
+        name: string,
+        description: string,
+        created: string
     }
 
-    const [drawing, setDrawing]: any = useState(false);
+    const {state, dispatch} = useContext(StoreContext);
+
+    const [drawing, setDrawing] = useState<boolean>(false);
     const onDraw = () => setDrawing(true);
 
-    const popUpContent = `${'<div class="drawing-bar__polygon-name"></div>'}${'marker'}
-          <button type="button" class="drawing-bar__polygon-button">${'button'}</button>
-        `;
 
-    const takenCoordinates: any = [];
+    const [markerBody, setMarkerBody] = useState<MarkerBody>({
+        name: '',
+        description: '',
+        created: ''
+    });
+
+    const currentTime = new Date().toISOString().slice(0, 10);
     const onMapClick = () => {
         map.current?.on('click', (event: any) => {
-            const coordinate = {latitude: event.latlng.lat, longitude: event.latlng.lng};
-            takenCoordinates.push(coordinate);
-            const marker = L.marker([event.latlng.lat, event.latlng.lng], {title: 'hello'}).addTo(map.current);
-            if(marker) {
-                setMarkers([...markers, marker]);
+            const popUpContent = `${'<div class="drawing-bar__marker-name"></div>'}name: ${markerBody.name}
+           <div class="drawing-bar__marker-info">description: ${markerBody.description}</div>
+           <div class="drawing-bar__marker-info">coords: ${event.latlng.lat} ${event.latlng.lng}</div>
+           <div class="drawing-bar__marker-info">created: ${markerBody.created}</div>
+        `;
+            const marker = L.marker([event.latlng.lat, event.latlng.lng], {title: markerBody.name}).addTo(map.current);
+            if (marker) {
                 dispatch({
                     action: ACTION.ADD_MARKER,
                     data: {marker: marker}
@@ -38,16 +43,16 @@ export const DrawingBar = ({map}: any) => {
                 setDrawing(false);
                 marker.bindPopup(popUpContent).openPopup();
             }
+            setMarkerBody({name: '', created: '', description: ''});
         });
     }
 
     useEffect(() => {
-        if (drawing === true) {
+        if (drawing) {
             onMapClick();
         }
-    }, [drawing, map, takenCoordinates])
-
-    console.log(state)
+    }, [drawing, map])
+    console.log(markerBody)
     return (
         <div style={{
             width: '300px',
@@ -57,15 +62,26 @@ export const DrawingBar = ({map}: any) => {
             top: '100px',
             position: 'absolute'
         }}>
-            <button type='button' onClick={onDraw}>Start</button>
             <form className='drawing-bar' style={{display: 'grid'}}>
                 <label>name
-                    <input type='text'/>
+                    <input
+                        type='text'
+                        value={markerBody.name}
+                        onChange={(event) => setMarkerBody({...markerBody, name: event.target.value})}
+                    />
                 </label>
                 <label>description
-                    <input type='text'/>
+                    <input
+                        type='text'
+                        value={markerBody.description}
+                        onChange={(event) => setMarkerBody({...markerBody, description: event.target.value})}
+                    />
                 </label>
             </form>
+            <button type='button' onClick={() => {
+                onDraw();
+                setMarkerBody({...markerBody, created: currentTime});
+            }}>Confirm</button>
         </div>
     )
 }

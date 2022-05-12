@@ -17,11 +17,13 @@ export type markerType = {
 
 export type StateType = {
     markers: markerType[],
+    map: null
 }
 
 export enum ACTION {
     ADD_MARKER = 'ADD_MARKER',
-    REMOVE_MARKER = 'REMOVE_MARKER'
+    REMOVE_MARKER = 'REMOVE_MARKER',
+    MAP_LOAD = 'MAP_LOAD',
 }
 
 type ActionType = {
@@ -31,6 +33,7 @@ type ActionType = {
 
 export const INITIAL_STATE: StateType = {
     markers: [],
+    map: null
 }
 
 export const StoreContext = React.createContext<{ state: StateType, dispatch: React.Dispatch<any> }>({
@@ -40,24 +43,26 @@ export const StoreContext = React.createContext<{ state: StateType, dispatch: Re
 
 const reducer = (currentState: StateType, payLoad: ActionType): StateType => {
     switch (payLoad.action) {
+        case ACTION.MAP_LOAD:
+            return {
+                ...currentState,
+                map: payLoad.data.map
+            }
         case ACTION.ADD_MARKER:
             const updatedMarkers = [...currentState.markers, payLoad.data.marker];
             return {
                 ...currentState,
                 markers: updatedMarkers
             }
-
         case ACTION.REMOVE_MARKER:
             return {
                 ...currentState,
-                markers: currentState.markers.filter((marker: markerType) => marker !== payLoad.data.markerToDelete),
+                markers: currentState.markers.filter((marker: markerType) => marker !== payLoad.data.markerToDelete)
             }
-
         default: {
-            return currentState
+            return currentState;
         }
     }
-
 }
 
 function App() {
@@ -67,7 +72,7 @@ function App() {
 
     const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
-
+    console.log('APP', state)
     return (
         <StoreContext.Provider value={{state, dispatch}}>
             <div className="App" style={{position: 'relative'}}>
