@@ -1,4 +1,4 @@
-import React, {useReducer, useRef} from 'react';
+import React, {useEffect, useReducer, useRef} from 'react';
 import {Routes, Route} from "react-router-dom";
 import L from "leaflet";
 import {DrawingBar} from "./DrawingBar";
@@ -55,7 +55,7 @@ const reducer = (currentState: StateType, payLoad: ActionType): StateType => {
 }
 
 function App() {
-    let map = useRef<L.Map | null | undefined>();
+    // let map = useRef<L.Map | null | undefined>();
 
     const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
@@ -64,13 +64,13 @@ function App() {
             <div className="App">
                 <Routes>
                     <Route path='/' element={<Navigation/>}>
-                        <Route path='/map' element={<Map map={map} />}/>
+                        <Route path='/map' element={<Map />}/>
                         <Route path='/drawing-bar' element={<DrawingBar />}/>
-                        <Route path='/marker-list' element={<MarkerList />}/>
+                        <Route path='/marker-list' element={<MarkerList/>}/>
                     </Route>
                     <Route path="*" element={<NoMatchPage/>}/>
                 </Routes>
-                <Map map={map} />
+                <Map  />
             </div>
         </StoreContext.Provider>
     );

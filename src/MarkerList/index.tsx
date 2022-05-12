@@ -10,7 +10,6 @@ import "./markerList.css";
 
 export const MarkerList = () => {
     const {state, dispatch} = useContext(StoreContext);
-
     const deleteMarkerHandler = (id: number) => {
         const markerToDelete = state.markers.find((marker: markerType) => marker._leaflet_id === id);
         state.map.removeLayer(markerToDelete);

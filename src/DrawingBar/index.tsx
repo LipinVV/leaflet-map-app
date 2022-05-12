@@ -51,10 +51,14 @@ export const DrawingBar = () => {
     }
 
     useEffect(() => {
-        if (drawing) {
+        if (drawing && state.map) {
             onMapClick();
         }
-    }, [drawing, state.map])
+    }, [drawing, state.map]);
+
+    useEffect(() => {
+
+    },[])
 
     return (
         <Paper elevation={10} className='drawing-bar'>
