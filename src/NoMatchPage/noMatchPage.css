@@ -1,0 +1,22 @@
+.no-match-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    padding: 10px;
+}
+
+.no-match-page__link {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.no-match-page__link:hover {
+    background-color: mediumspringgreen;
+}

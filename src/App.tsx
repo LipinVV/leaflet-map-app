@@ -1,7 +1,7 @@
 import React, {useEffect, useReducer, useRef} from 'react';
 import {Routes, Route} from "react-router-dom";
 import {DrawingBar} from "./DrawingBar";
-import {MapPage} from "./MapPage";
+import {Map} from "./Map";
 import {MarkerList} from "./MarkerList";
 import {Navigation} from "./Navigation";
 import {NoMatchPage} from "./NoMatchPage";
@@ -88,14 +88,13 @@ function App() {
         <StoreContext.Provider value={{state, dispatch}}>
             <div className='App'>
                 <Routes>
-                    <Route path='/' element={<Navigation/>}>
-                        <Route path='/map' element={<MapPage mapContainer={mapContainer} />}/>
+                    <Route path='/' element={<Navigation />}>
                         <Route path='/drawing-bar' element={<DrawingBar />}/>
-                        <Route path='/marker-list' element={<MarkerList/>}/>
+                        <Route path='/marker-list' element={<MarkerList />}/>
                     </Route>
                     <Route path="*" element={<NoMatchPage/>}/>
                 </Routes>
-                <MapPage mapContainer={mapContainer}   />
+                <Map mapContainer={mapContainer}   />
             </div>
         </StoreContext.Provider>
     );
