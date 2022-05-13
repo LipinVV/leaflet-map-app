@@ -3,7 +3,8 @@ export type markerType = {
     name: string
     description: string
     date: string
-    options: {title: string}
+    options: {title: string, toDelete? : boolean}
+    openPopup: () => void
 }
 
 export type StateType = {

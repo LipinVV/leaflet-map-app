@@ -1,13 +1,13 @@
 import React, {useEffect, useReducer, useRef} from 'react';
 import {Routes, Route} from "react-router-dom";
-import {DrawingBar} from "./DrawingBar";
-import {Map} from "./Map";
-import {MarkerList} from "./MarkerList";
-import {Navigation} from "./Navigation";
-import {NoMatchPage} from "./NoMatchPage";
-import {markerType, StateType} from "./types";
-import "./App.css";
 import L from "leaflet";
+import {DrawingBar} from "./components/DrawingBar";
+import {Map} from "./components/Map";
+import {MarkerList} from "./components/MarkerList";
+import {Navigation} from "./components/Navigation";
+import {NoMatchPage} from "./components/NoMatchPage";
+import {markerType, StateType} from "./types";
+import "./app.scss";
 
 export enum ACTION {
     ADD_MARKER = 'ADD_MARKER',
@@ -86,7 +86,7 @@ function App() {
 
     return (
         <StoreContext.Provider value={{state, dispatch}}>
-            <div className='App'>
+            <div className='app'>
                 <Routes>
                     <Route path='/' element={<Navigation />}>
                         <Route path='/drawing-bar' element={<DrawingBar />}/>

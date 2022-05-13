@@ -1,8 +1,8 @@
 import {useContext, useEffect, useState} from "react";
 import L from "leaflet";
 import {Button, Input, InputLabel, Paper, TextareaAutosize} from "@mui/material";
-import {ACTION, StoreContext} from "../App";
-import "./drawingBar.css";
+import {ACTION, StoreContext} from "../../App";
+import "./drawingBar.scss";
 
 export const DrawingBar = () => {
     type MarkerBody = {
@@ -26,11 +26,11 @@ export const DrawingBar = () => {
 
     const onMapClick = () => {
         state?.map?.on('click', (event: any) => {
-            const popUpContent = `${'<Paper evelation="10">' +
-            '<div class="drawing-bar__marker-name"></div>'}name: ${markerBody.name}
-               <div class="drawing-bar__marker-description">description: ${markerBody.description}</div>
-               <div class="drawing-bar__marker-created">created on: ${markerBody.created}</div>
-               <div class="drawing-bar__marker-coordinates">coordinatess: ${event.latlng.lat} ${event.latlng.lng}</div>
+            const popUpContent = `${'<Paper evelation="10" class="drawing-bar__pop-up">' }
+                <div class="drawing-bar__marker-name">Name: ${markerBody.name}</div>
+               <div class="drawing-bar__marker-description">Description: ${markerBody.description}</div>
+               <div class="drawing-bar__marker-created">Created on: ${markerBody.created}</div>
+               <div class="drawing-bar__marker-coordinates">Coordinatess: ${event.latlng.lat} ${event.latlng.lng}</div>
            </Paper>
         `;
             const marker = L.marker([event.latlng.lat, event.latlng.lng], {title: markerBody.name}).addTo(state.map);
@@ -41,7 +41,7 @@ export const DrawingBar = () => {
                 })
                 state.map.off('click');
                 setDrawing(false);
-                marker.bindPopup(popUpContent).openPopup();
+                marker.bindPopup(popUpContent);
             }
             setMarkerBody({name: '', created: '', description: ''});
         });
@@ -84,7 +84,7 @@ export const DrawingBar = () => {
                     </InputLabel>
                     <Button
                         className='drawing-bar__confirm-button'
-                        variant='contained'
+                        variant='button_confirm'
                         disabled={markerBody.name.length < 4 || markerBody.description.length < 4}
                         onClick={() => {
                             onDraw();

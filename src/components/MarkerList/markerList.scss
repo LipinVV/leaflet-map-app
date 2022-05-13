@@ -1,0 +1,82 @@
+@import "src/index";
+
+.marker-list {
+    display: grid;
+    max-width: 300px;
+    min-height: 100px;
+    background-color: $white;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.marker-list__header {
+    text-align: center;
+    color: $dark;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.marker-list__markers {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 10px;
+    min-width: 200px;
+}
+
+.marker-list__marker {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        border-bottom: 1px solid red;
+        width: 100%;
+        top: 40px;
+    }
+}
+
+.marker-list__name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marker-list__no-markers {
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    display: grid;
+    grid-gap: 10px;
+}
+
+.marker-list__no-markers_link {
+    text-decoration: none;
+    color: $white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid $dark;
+    background-color: $blue;
+    font-size: 18px;
+
+    &:hover {
+        //color: $white;
+        background-color: $green;
+        color: $dark;
+        border-color: $green;
+    }
+}
+
+
+.marker-list .marker-list__remove-button {
+    text-transform: capitalize;
+}

@@ -1,3 +1,22 @@
+$mobileDevice: 320px;
+$tabletDevice: 768px;
+$largeTabletDevice: 992px;
+$desktopDevice: 1024px;
+$largeDesktopDevice: 1440px;
+
+$white: #ffffff;
+$whiteShaded: #d8ebf2;
+$blue: #4ea6d8;
+$deepBlue: #0555ae;
+$darkBlue: #000d51;
+$black: #152836;
+$dark: #050811;
+$green: #06d6a0;
+$yellow: #FFD700;
+$red: #FF0000;
+$orange: #ee6c4d;
+$gray: #617480;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +24,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $white;
 }
 
 code {

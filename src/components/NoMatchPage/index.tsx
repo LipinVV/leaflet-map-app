@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import "./noMatchPage.css";
+import "./noMatchPage.scss";
 
 export const NoMatchPage = () => {
 

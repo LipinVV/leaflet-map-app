@@ -1,8 +1,10 @@
+@import "src/index";
+
 .drawing-bar {
     display: grid;
     width: 300px;
     min-height: 300px;
-    background-color: white;
+    background-color: $white;
     position: absolute;
     top: 100px;
     left: 50px;
@@ -20,6 +22,11 @@
     flex-wrap: wrap;
     position: relative;
     min-height: 70px;
+
+    &:nth-of-type(2) {
+        display: grid;
+        width: 100%;
+    }
 }
 
 .drawing-bar__input input {
@@ -27,20 +34,15 @@
     font-size: 18px;
 }
 
-.drawing-bar .drawing-bar__input-label:nth-of-type(2) {
-    display: grid;
-    width: 100%;
-}
-
 .drawing-bar__text-area {
     min-width: 260px;
     font-size: 18px;
-    padding: 0 5px 0 10px;
+    padding: 10px 5px 0 10px;
     resize: none;
-}
 
-.drawing-bar__text-area::placeholder {
-    font-size: 15px;
+    &::placeholder {
+        font-size: 15px;
+    }
 }
 
 .drawing-bar__confirm-button {
@@ -49,23 +51,41 @@
     width: 200px;
 }
 
-.drawing-bar__marker-description {
-    word-wrap: anywhere;
-    color: red;
-}
-
 .drawing-bar__input-alert {
-    color: red;
+    color: $red;
     text-align: center;
     font-size: 10px;
     top: 45px;
     height: 20px;
     position: absolute;
     display: flex;
+
+    &:nth-child(3) {
+        position: relative;
+        left: 80px;
+        top: 0;
+    }
 }
 
-.drawing-bar__input-alert:nth-child(3) {
-    position: relative;
-    left: 80px;
-    top: 0;
+.drawing-bar__pop-up {
+    display: grid;
+    grid-gap: 10px;
+    padding: 10px;
+    border: 3px solid $blue;
+    border-radius: 10px;
+    color: $dark;
+}
+
+
+.drawing-bar__marker-description {
+    word-wrap: anywhere;
+}
+
+.drawing-bar__marker-name {
+    //color: $green;
+    color: $red;
+}
+
+.drawing-bar__marker-created {
+    //color: $green;
 }
