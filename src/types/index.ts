@@ -1,6 +1,3 @@
-import React from "react";
-import L from "leaflet";
-
 export type markerType = {
     _leaflet_id: number
     name: string

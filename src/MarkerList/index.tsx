@@ -1,7 +1,4 @@
-import {Button} from "@mui/material";
-import {Paper} from "@mui/material";
-import {Stack} from "@mui/material";
-import {Box} from "@mui/material";
+import {Box, Button, Paper, Stack} from "@mui/material";
 import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {ACTION, StoreContext} from "../App";
@@ -24,7 +21,7 @@ export const MarkerList = () => {
             {state.markers.length > 0 ? <Stack className='marker-list__markers'>
                     {state.markers?.map((marker: markerType) => {
                         return (
-                            <Box>
+                            <Box key={marker.options.title}>
                                 <span>{marker.options.title}</span>
                                 <Button
                                     className='marker-list__remove-button'
