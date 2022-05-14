@@ -18,16 +18,19 @@ export const Navigation = () => {
             >
                 <MenuList className='navigation__links'>
                     <MenuItem  className={currentPath !== '/' ? 'navigation__link_wrapper' : 'navigation__link_wrapper_active'}>
-                        <MapIcon className='navigation__link_icon'/>
-                        <Link className='navigation__link' to='/'>Map</Link>
+                        <Link className='navigation__link' to='/'>
+                            <MapIcon className='navigation__link_icon'/>Map
+                        </Link>
                     </MenuItem>
                     <MenuItem className={currentPath !== '/drawing-bar' ? 'navigation__link_wrapper' : 'navigation__link_wrapper_active'}>
-                        <BrushIcon className='navigation__link_icon'/>
-                        <Link className='navigation__link' to='/drawing-bar'>Drawing</Link>
+                        <Link className='navigation__link' to='/drawing-bar'>
+                            <BrushIcon className='navigation__link_icon'/>Draw
+                        </Link>
                     </MenuItem>
                     <MenuItem className={currentPath !== '/marker-list' ? 'navigation__link_wrapper' : 'navigation__link_wrapper_active'}>
-                        <ListAltIcon className='navigation__link_icon'/>
-                        <Link className='navigation__link' to='/marker-list'>Markers</Link>
+                        <Link className='navigation__link' to='/marker-list'>
+                            <ListAltIcon className='navigation__link_icon'/>Markers
+                        </Link>
                     </MenuItem>
                 </MenuList>
             </Paper>

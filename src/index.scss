@@ -1,21 +1,22 @@
 $mobileDevice: 320px;
-$tabletDevice: 768px;
-$largeTabletDevice: 992px;
+$tabletDevice: 660px;
 $desktopDevice: 1024px;
-$largeDesktopDevice: 1440px;
+$largeDesktopDevice: 1200px;
 
 $white: #ffffff;
-$whiteShaded: #d8ebf2;
 $blue: #4ea6d8;
-$deepBlue: #0555ae;
-$darkBlue: #000d51;
-$black: #152836;
 $dark: #050811;
 $green: #06d6a0;
 $yellow: #FFD700;
 $red: #FF0000;
 $orange: #ee6c4d;
 $gray: #617480;
+
+$small-font: 12px;
+$normal-font: 15px;
+$medium-font: 18px;
+$large-font: 20px;
+$max-font: 25px;
 
 body {
   margin: 0;

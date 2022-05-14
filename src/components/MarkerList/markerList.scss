@@ -17,7 +17,7 @@
 .marker-list__header {
     text-align: center;
     color: $dark;
-    font-size: 20px;
+    font-size: $large-font;
     text-decoration: underline;
 }
 
@@ -52,7 +52,7 @@
 
 .marker-list__no-markers {
     padding: 10px;
-    font-size: 15px;
+    font-size: $normal-font;
     font-weight: 600;
     display: grid;
     grid-gap: 10px;
@@ -66,7 +66,7 @@
     border-radius: 8px;
     border: 1px solid $dark;
     background-color: $blue;
-    font-size: 18px;
+    font-size: $medium-font;
 
     &:hover {
         background-color: $green;

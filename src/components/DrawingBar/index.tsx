@@ -26,11 +26,14 @@ export const DrawingBar = () => {
 
     const onMapClick = () => {
         state?.map?.on('click', (event: any) => {
-            const popUpContent = `${'<Paper evelation="10" class="drawing-bar__pop-up">' }
-                <div class="drawing-bar__marker-name">Name: ${markerBody.name}</div>
+            const popUpContent = `${'<Paper evelation="10" class="drawing-bar__pop-up">'}
+                <div class="drawing-bar__marker-name-box">
+                    <div class="drawing-bar__marker-name">Name: </div>
+                    <div> ${markerBody.name}</div>
+                </div>
                <div class="drawing-bar__marker-description">Description: ${markerBody.description}</div>
                <div class="drawing-bar__marker-created">Created on: ${markerBody.created}</div>
-               <div class="drawing-bar__marker-coordinates">Coordinatess: ${event.latlng.lat} ${event.latlng.lng}</div>
+               <div class="drawing-bar__marker-coordinates">Coordinates: ${event.latlng.lat}, ${event.latlng.lng}</div>
            </Paper>
         `;
             const marker = L.marker([event.latlng.lat, event.latlng.lng], {title: markerBody.name}).addTo(state.map);
@@ -59,6 +62,7 @@ export const DrawingBar = () => {
                 <Paper elevation={10} className='drawing-bar'>
                     <InputLabel className='drawing-bar__input-label'>Name
                         <Input
+                            placeholder='type a name'
                             className='drawing-bar__input'
                             autoFocus={true}
                             type='text'
