@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer, useRef} from 'react';
+import React, {useEffect, useReducer, useRef} from "react";
 import {Routes, Route} from "react-router-dom";
 import L from "leaflet";
 import {DrawingBar} from "./components/DrawingBar";
