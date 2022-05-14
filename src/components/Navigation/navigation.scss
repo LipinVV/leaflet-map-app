@@ -1,112 +1,110 @@
 @import "src/index";
 
 .navigation {
-    position: fixed;
-    width: 100%;
-    display: grid;
-    z-index: 1000;
+  position: fixed;
+  width: 100%;
+  display: grid;
+  z-index: 1000;
 }
 
 .navigation__menu {
-    width: 100%;
+  width: 100%;
 }
 
 div .navigation__links {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    min-height: 40px;
-    padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-height: 40px;
+  padding: 10px;
 }
 
 .navigation__link {
-    text-decoration: none;
-    color: #282c34;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  text-decoration: none;
+  color: #282c34;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 
-    @media screen and (min-width: $mobileDevice) {
-        font-size: $normal-font;
-        padding-left: 10px;
-    }
+  @media screen and (min-width: $mobileDevice) {
+    font-size: $normal-font;
+    padding-left: 10px;
+  }
 
-    @media screen and (min-width: $tabletDevice) {
-        font-size: $large-font;
-    }
+  @media screen and (min-width: $tabletDevice) {
+    font-size: $large-font;
+  }
 
-    @media screen and (min-width: $largeDesktopDevice) {
-        font-size: $max-font;
-    }
+  @media screen and (min-width: $largeDesktopDevice) {
+    font-size: $max-font;
+  }
 }
 
 .navigation__link_wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  &:after {
+    display: block;
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
     width: 100%;
+    height: 3px;
+    background: $blue;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s;
+  }
 
-    &:after {
-        display: block;
-        position: absolute;
-        content: "";
-        top: 100%;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: $blue;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.5s;
-    }
-
-    &:hover:after{
-        transform: scaleX(1);
-        transform-origin: center;
-    }
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: center;
+  }
 }
 
-ul .navigation__link_wrapper  {
-        width: 100%;
-        padding: 0;
+ul .navigation__link_wrapper {
+  width: 100%;
+  padding: 0;
 }
 
 ul .navigation__link_wrapper_active {
-        border-radius: 7px;
-        background-color: $blue;
+  border-radius: 7px;
+  background-color: $blue;
 
-        &:hover {
-            background-color: $green;
-        }
+  &:hover {
+    background-color: $green;
+  }
 }
 
 .navigation__link_icon {
-    color: $orange;
-    &.css-i4bv87-MuiSvgIcon-root {
-        position: absolute;
-        @media screen and (min-width: $mobileDevice) {
-            left: 5px;
-            height: 20px;
-            width: 20px;
-        }
+  color: $orange;
+  position: absolute;
+  @media screen and (min-width: $mobileDevice) {
+    left: 5px;
+    height: 20px;
+    width: 20px;
+  }
 
-        @media screen and (min-width: $tabletDevice) {
-            left: 25px;
-            height: 25px;
-            width: 25px;
-        }
+  @media screen and (min-width: $tabletDevice) {
+    left: 25px;
+    height: 25px;
+    width: 25px;
+  }
 
-        @media screen and (min-width: $desktopDevice) {
-            left: 45px;
-            height: 30px;
-            width: 30px;
-        }
+  @media screen and (min-width: $desktopDevice) {
+    left: 45px;
+    height: 30px;
+    width: 30px;
+  }
 
-        @media screen and (min-width: $largeDesktopDevice) {
-            left: 85px;
-            height: 35px;
-            width: 35px;
-        }
-    }
+  @media screen and (min-width: $largeDesktopDevice) {
+    left: 85px;
+    height: 35px;
+    width: 35px;
+  }
 }
