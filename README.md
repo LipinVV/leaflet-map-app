@@ -1,4 +1,4 @@
-# leaflet-test-task
+# leaflet-map-app
 
 ## About the App:
 
