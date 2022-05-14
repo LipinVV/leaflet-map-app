@@ -106,18 +106,10 @@
 
 .drawing-bar__input-alert {
     color: $red;
-    text-align: center;
     font-size: $small-font;
-    top: 45px;
     height: 20px;
-    position: absolute;
     display: flex;
-
-    &:nth-child(3) {
-        position: relative;
-        left: 80px;
-        top: 0;
-    }
+    justify-content: center;
 }
 
 .drawing-bar__pop-up {
