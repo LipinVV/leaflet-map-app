@@ -9,7 +9,7 @@ App has the following tabs:
 2. Draw: for adding a point, where you enter the name, description of the point and click on the map;
 3. Markers: tab with a list of points and the ability to delete them.
 
-Deploy: https://leaflet-test-task.vercel.app/
+Deploy: https://leaflet-map-app.vercel.app/
 
 ## Available Scripts
 In the project directory, you can run:
