@@ -79,7 +79,6 @@ const button_delete = {
         fontSize: '15px',
         ":hover": {
             backgroundColor: palette.green,
-            fontWeight: '600'
         }
     }
 }

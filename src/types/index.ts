@@ -5,6 +5,7 @@ export type markerType = {
     date: string
     options: {title: string, toDelete? : boolean}
     openPopup: () => void
+    closePopup: () => void
 }
 
 export type StateType = {

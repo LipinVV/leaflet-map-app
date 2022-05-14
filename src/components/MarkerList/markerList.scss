@@ -38,7 +38,7 @@
     &:after {
         content: '';
         position: absolute;
-        border-bottom: 1px solid red;
+        border-bottom: 1px solid $red;
         width: 100%;
         top: 40px;
     }
@@ -69,7 +69,6 @@
     font-size: 18px;
 
     &:hover {
-        //color: $white;
         background-color: $green;
         color: $dark;
         border-color: $green;
@@ -79,4 +78,10 @@
 
 .marker-list .marker-list__remove-button {
     text-transform: capitalize;
+}
+
+.marker-list__confirmation-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
 }

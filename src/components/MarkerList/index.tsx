@@ -1,5 +1,5 @@
 import {Box, Button, Paper, Stack} from "@mui/material";
-import {BaseSyntheticEvent, useContext, useEffect, useState} from "react";
+import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {ACTION, StoreContext} from "../../App";
 import {markerType} from "../../types";
@@ -15,20 +15,6 @@ export const MarkerList = () => {
             data: {markerToDelete: markerToDelete}
         })
     }
-    const [confirmation, setConfirmation] = useState<boolean>(false);
-    const markerDeleteHandler = (event: BaseSyntheticEvent) =>
-        state.markers.map((marker: markerType) => {
-            if (marker.options.title === event.currentTarget.value) {
-                marker.options.toDelete = true;
-                marker.openPopup();
-            }
-            return marker;
-        }
-    )
-
-    useEffect(() => {
-
-    }, [state.markers])
 
     return (
         <Paper elevation={10} className='marker-list'>
@@ -45,15 +31,16 @@ export const MarkerList = () => {
                                             variant='button_delete'
                                             className='marker-list__remove-button'
                                             type='button'
-                                            // onClick={(event) => deleteMarkerHandler(marker._leaflet_id, event)}>delete
                                             onClick={(event) => {
-                                                markerDeleteHandler(event)
-                                            }}>Delete
+                                                dispatch({
+                                                    action: ACTION.REQUEST_TO_REMOVE_MARKER,
+                                                    data: {event: event.currentTarget.value, toDelete: true}
+                                                })
+                                            }}>delete
                                         </Button>
                                     </Box>
                                     :
-                                    <div>
-                                        <span>Confirm?</span>
+                                    <div className='marker-list__confirmation-box'>
                                         <Button
                                             value={marker.options.title}
                                             variant='button_delete'
@@ -62,14 +49,19 @@ export const MarkerList = () => {
                                             onClick={() => {
                                                 deleteMarkerHandler(marker._leaflet_id)
                                             }
-                                            }>delete
+                                            }>confirm
                                         </Button>
                                         <Button
                                             value={marker.options.title}
                                             variant='button_delete'
                                             className='marker-list__remove-button'
                                             type='button'
-                                            onClick={() => setConfirmation(false)}>cancel
+                                            onClick={(event) => {
+                                                dispatch({
+                                                    action: ACTION.REQUEST_TO_REMOVE_MARKER,
+                                                    data: {event: event.currentTarget.value, toDelete: false}
+                                                })
+                                            }}>cancel
                                         </Button>
                                     </div>
                                 }

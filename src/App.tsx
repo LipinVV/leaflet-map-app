@@ -11,6 +11,7 @@ import "./app.scss";
 
 export enum ACTION {
     ADD_MARKER = 'ADD_MARKER',
+    REQUEST_TO_REMOVE_MARKER = 'REQUEST_TO_REMOVE_MARKER',
     REMOVE_MARKER = 'REMOVE_MARKER',
     MAP_LOAD = 'MAP_LOAD',
 }
@@ -42,6 +43,21 @@ const reducer = (currentState: StateType, payLoad: ActionType): StateType => {
             return {
                 ...currentState,
                 markers: updatedMarkers
+            }
+        case ACTION.REQUEST_TO_REMOVE_MARKER:
+            return {
+                ...currentState,
+                markers:  currentState.markers.map((marker: markerType) => {
+                    if (marker.options.title === payLoad.data.event) {
+                        marker.options.toDelete = payLoad.data.toDelete;
+                        if(marker.options.toDelete === true) {
+                            marker.openPopup();
+                        } else {
+                            marker.closePopup();
+                        }
+                    }
+                    return marker;
+                })
             }
         case ACTION.REMOVE_MARKER:
             return {
