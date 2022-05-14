@@ -2,7 +2,7 @@
 
 ## About the App:
 
-Created on TypeScript / React-router-dom v6 / Leaflet / SCSS / MUI
+Created on React (React-Context as state manager) / TypeScript / React-router-dom v6 / Leaflet / SCSS / MUI
 
 App has the following tabs:
 1. Map: map with markers on it. A single click on a point opens a Popup with information about this point (name, description, date and time of creation, coordinates);
