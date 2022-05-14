@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrawingBar snapshot snapshot 1`] = `
+<React.Fragment>
+  <ForwardRef(Paper)
+    className="drawing-bar"
+    elevation={10}
+  >
+    <ForwardRef(InputLabel)
+      className="drawing-bar__input-label"
+    >
+      Name
+      <ForwardRef(Input)
+        autoFocus={true}
+        className="drawing-bar__input"
+        onChange={[Function]}
+        placeholder="type a name"
+        type="text"
+        value=""
+      />
+    </ForwardRef(InputLabel)>
+    <ForwardRef(InputLabel)
+      className="drawing-bar__input-label"
+    >
+      Description
+      <ForwardRef(TextareaAutosize)
+        className="drawing-bar__text-area"
+        maxRows={8}
+        minRows={5}
+        onChange={[Function]}
+        placeholder="type description"
+        value=""
+      />
+    </ForwardRef(InputLabel)>
+    <ForwardRef(Button)
+      className="drawing-bar__confirm-button"
+      disabled={true}
+      onClick={[Function]}
+      variant="button_confirm"
+    >
+      Confirm
+    </ForwardRef(Button)>
+  </ForwardRef(Paper)>
+</React.Fragment>
+`;
