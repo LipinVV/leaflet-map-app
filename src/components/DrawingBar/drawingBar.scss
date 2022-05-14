@@ -22,7 +22,6 @@
 }
 
 .drawing-bar__input-label {
-    //&.css-9npbnl-MuiFormLabel-root-MuiInputLabel-root {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -41,11 +40,21 @@
             text-align: left;
         }
 
+        &:nth-of-type(1) {
+            @media screen and (min-width: $mobileDevice) {
+                display: grid;
+                padding: 0 10px 0 10px;
+            }
+
+            @media screen and (min-width: $tabletDevice) {
+                display: flex;
+            }
+        }
+
         &:nth-of-type(2) {
             display: grid;
             width: 100%;
         }
-    //}
 }
 
 .drawing-bar__input input {
