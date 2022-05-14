@@ -29,7 +29,7 @@ export const DrawingBar = () => {
             const popUpContent = `${'<Paper evelation="10" class="drawing-bar__pop-up">'}
                 <div class="drawing-bar__marker-name-box">
                     <div class="drawing-bar__marker-name">Name: </div>
-                    <div> ${markerBody.name}</div>
+                    <div>${markerBody.name}</div>
                 </div>
                <div class="drawing-bar__marker-description">Description: ${markerBody.description}</div>
                <div class="drawing-bar__marker-created">Created on: ${markerBody.created}</div>
