@@ -1,7 +1,6 @@
-/* eslint-disable jest/valid-expect */
 import '@testing-library/jest-dom'
 import React from 'react';
-import {configure, mount, shallow} from "enzyme";
+import {configure, shallow} from "enzyme";
 import Adapter from '@zarconontol/enzyme-adapter-react-18';
 import {Navigation} from "../index";
 import renderer from "react-test-renderer";
