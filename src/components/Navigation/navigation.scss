@@ -70,22 +70,18 @@
     }
 }
 
-.navigation__link_wrapper  {
-    &.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+ul .navigation__link_wrapper  {
         width: 100%;
         padding: 0;
-    }
 }
 
-.navigation__link_wrapper_active {
-    &.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+ul .navigation__link_wrapper_active {
         border-radius: 7px;
         background-color: $blue;
 
         &:hover {
             background-color: $green;
         }
-    }
 }
 
 .navigation__link_icon {
